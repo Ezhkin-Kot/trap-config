@@ -1,6 +1,6 @@
 # Download this repo:
 ```
-git clone https://github.com/Ezhkin-Kot/trap-config
+git clone https://github.com/Ezhkin-Kot/trap-config && cd trap-config
 ```
 
 # And run one script:
