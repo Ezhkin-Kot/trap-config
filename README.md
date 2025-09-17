@@ -9,3 +9,7 @@ chmod +x trap.sh
 ./trap.sh
 ```
 
+## Dependencies:
+- `sl`
+- UNIX-based system
+- that's all
