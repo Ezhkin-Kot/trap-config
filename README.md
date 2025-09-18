@@ -2,6 +2,7 @@
 ```
 git clone https://github.com/Ezhkin-Kot/trap-config && cd trap-config && ./trap.sh
 ```
+and have fun)
 
 ## Dependencies:
 - `sl`
