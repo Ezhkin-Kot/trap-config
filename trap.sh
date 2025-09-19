@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 if [[ "$SHELL" == "/bin/bash" ]]; then
   cp ~/.bashrc ~/.bashrc.bak
