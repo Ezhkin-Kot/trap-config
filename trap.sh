@@ -1,6 +1,6 @@
 #!/bin/bash
 
-shell_name=$(basename "$SHELL")
+MODULE_PATH="./malware-module"
 
 modify_config() {
   local config_file="$1"
