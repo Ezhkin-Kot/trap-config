@@ -19,6 +19,7 @@ if [[ -f /etc/shells ]]; then
     case "$(basename "$shell_path")" in
       bash)
         modify_config "$HOME/.bashrc"
+        exec bash
         ;;
       zsh)
         if [[ "$OSTYPE" == "darwin"* ]]; then
@@ -28,6 +29,7 @@ if [[ -f /etc/shells ]]; then
         fi
 
         modify_config "$HOME/.zshrc"
+        exec zsh
         ;;
       *)
         ;;
