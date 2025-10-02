@@ -20,25 +20,23 @@ if [[ -f /etc/shells ]]; then
       continue
     fi
 
-    case "$(basename "$shell_path")" in
-      bash)
-        modify_config "$HOME/.bashrc"
-        exec bash
-        ;;
-      zsh)
-        if [[ "$OSTYPE" == "darwin"* ]]; then
-          sed -i '' -e 's/zsh-autosuggestions//g' ~/.zshrc
-        else
-          sed -i -e 's/zsh-autosuggestions//g' ~/.zshrc
-        fi
+    shell_name = "$(basename "$shell_path")"
 
-        modify_config "$HOME/.zshrc"
-        exec zsh
-        ;;
-      *)
-        ;;
-    esac
+    if [[ shell_name == "bash" ]]; then
+      modify_config "$HOME/.bashrc"
+      exec bash
+    elif [[ shell_name == "zsh" ]]; then
+      if [[ "$OSTYPE" == "darwin"* ]]; then
+        sed -i '' -e 's/zsh-autosuggestions//g' ~/.zshrc
+      else
+        sed -i -e 's/zsh-autosuggestions//g' ~/.zshrc
+      fi
+
+      modify_config "$HOME/.zshrc"
+      exec zsh
+    fi
   done < /etc/shells
 else
   /bin/echo "Error: File not found: /etc/shells. Alas :("
 fi
+
