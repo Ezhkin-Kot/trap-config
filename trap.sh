@@ -22,9 +22,10 @@ if [[ -f /etc/shells ]]; then
 
     shell_name="$(basename "$shell_path")"
 
-    if [[ "$shell_name" == "bash" ]]; then
+    if [[ "$shell_name" == "bash" && "$shell_type" == "" ]]; then
       modify_config "$HOME/.bashrc"
-    elif [[ "$shell_name" == "zsh" ]]; then
+      shell_type="bash"
+    elif [[ "$shell_name" == "zsh" && "$shell_type" != "zsh" ]]; then
       modify_config "$HOME/.zshrc"
 
       if [[ "$OSTYPE" == "darwin"* ]]; then
@@ -32,6 +33,8 @@ if [[ -f /etc/shells ]]; then
       else
         sed -i -e 's/zsh-autosuggestions//g' ~/.zshrc
       fi
+
+      shell_type="zsh"
     fi
   done < /etc/shells
 
