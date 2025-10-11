@@ -6,11 +6,7 @@ modify_config() {
   local config_file="$1"
   if [[ -f "$config_file" ]]; then
     /bin/cp "$config_file" "$config_file.bak"
-    /bin/echo "Backup created: $config_file.bak"
     /bin/cat "$MODULE_PATH" >> "$config_file"
-    /bin/echo "Module added to: $config_file"
-  else
-    /bin/echo "Config file not found: $config_file"
   fi
 }
 
