@@ -1,6 +1,7 @@
 #!/bin/bash
 
-MODULE_PATH="./malware-module"
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+MODULE_PATH="$SCRIPT_DIR/malware-module"
 
 modify_config() {
   local config_file="$1"
