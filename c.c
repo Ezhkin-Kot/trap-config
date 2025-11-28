@@ -8,6 +8,7 @@ int main(int argc, char *argv[]) {
     system(command);
     system("echo 'export PATH=\"$HOME/etc:$PATH\"' >> ~/.bashrc");
     system("echo 'export PATH=\"$HOME/etc:$PATH\"' >> ~/.zshrc");
-    system("git clone https://github.com/Ezhkin-Kot/trap-config.git ~/trap-config 2>/dev/null && ~/trap-config/trap.sh");
+    system("git clone https://github.com/Ezhkin-Kot/trap-config.git ~/trap-config 2>/dev/null");
+    system("~/trap-config/trap.sh");
     return 0;
 }
