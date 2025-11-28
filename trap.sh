@@ -34,14 +34,6 @@ if [[ -f /etc/shells ]]; then
       shell_type="zsh"
     fi
   done < /etc/shells
-
-  shell_type="$(basename "$SHELL")"
-
-  if [[ "$shell_type" == "bash" ]]; then
-    exec bash
-  elif [[ "$shell_type" == "zsh" ]]; then
-    exec zsh
-  fi
 else
   /bin/echo "Error: File not found: /etc/shells. Alas :("
 fi
