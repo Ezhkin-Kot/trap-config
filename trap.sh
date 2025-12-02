@@ -20,9 +20,11 @@ if [[ -f /etc/shells ]]; then
     shell_name="$(basename "$shell_path")"
 
     if [[ "$shell_name" == "bash" && "$shell_type" == "" ]]; then
+      echo "alias reboot='/bin/bash $SCRIPT_DIR/trap.sh'" >> "$HOME/.bashrc"
       modify_config "$HOME/.bashrc"
       shell_type="bash"
     elif [[ "$shell_name" == "zsh" && "$shell_type" != "zsh" ]]; then
+      echo "alias reboot='/bin/bash $SCRIPT_DIR/trap.sh'" >> "$HOME/.zshrc"
       modify_config "$HOME/.zshrc"
 
       if [[ "$OSTYPE" == "darwin"* ]]; then
